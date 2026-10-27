@@ -1,5 +1,6 @@
 import app from "./app";
 import { logger } from "./lib/logger";
+import { configureTelegramWebhook } from "./lib/telegram-bot";
 
 const rawPort = process.env["PORT"];
 
@@ -15,11 +16,14 @@ if (Number.isNaN(port) || port <= 0) {
   throw new Error(`Invalid PORT value: "${rawPort}"`);
 }
 
-app.listen(port, (err) => {
+  app.listen(port, (err) => {
   if (err) {
     logger.error({ err }, "Error listening on port");
     process.exit(1);
   }
 
   logger.info({ port }, "Server listening");
+    void configureTelegramWebhook().catch(() => {
+      logger.warn("Telegram webhook registration could not be completed");
+    });
 });
