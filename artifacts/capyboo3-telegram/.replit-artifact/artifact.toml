@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Capyboo3 Telegram Bot"
+description = "A mobile-first Telegram bot web splash page for Capyboo3. It opens with the supplied game artwork and a short loading animation, then clearly announces that the server is coming soon."
+version = "1.0.0"
+id = "artifacts/capyboo3-telegram"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18452
+
+[services.development]
+run = "pnpm --filter @workspace/capyboo3-telegram run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/capyboo3-telegram", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/capyboo3-telegram/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18452"
+BASE_PATH = "/"

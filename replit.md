@@ -1,6 +1,6 @@
-# [Project name]
+# Capyboo3 Telegram Mini App
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A Telegram Web App splash screen that displays the supplied Capyboo3 artwork, then announces “Server Is Coming Soon.”
 
 ## Run & Operate
 
@@ -22,19 +22,21 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/capyboo3-telegram` — Telegram Mini App frontend and supplied artwork
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- The Telegram Web Apps SDK is used to signal readiness, expand the Mini App, and follow Telegram viewport and theme changes.
+- The loading sequence is a timed splash animation; no server connection is attempted.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+The Mini App displays only the supplied Capyboo3 artwork full screen.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- Keep this as a Telegram Mini App, not a promotional website.
+- Show only the supplied image full screen, with no loading indicator, status text, or added background.
 
 ## Gotchas
 
