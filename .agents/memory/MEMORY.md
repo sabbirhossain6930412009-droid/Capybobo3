@@ -1,0 +1,1 @@
+- [Telegram Mini App viewport](telegram-miniapp-viewport.md) — Replit previews include host chrome outside the app viewport; size portrait artwork to Telegram's reported viewport.

@@ -1,6 +1,6 @@
 # Capyboo3 Telegram Mini App
 
-A Telegram Web App splash screen that displays the supplied Capyboo3 artwork, then announces “Server Is Coming Soon.”
+A Telegram Mini App that plays the supplied Capyboo3 loading video, then shows the artwork with an “Airdrop is coming soon” popup.
 
 ## Run & Operate
 
@@ -27,16 +27,17 @@ A Telegram Web App splash screen that displays the supplied Capyboo3 artwork, th
 ## Architecture decisions
 
 - The Telegram Web Apps SDK is used to signal readiness, expand the Mini App, and follow Telegram viewport and theme changes.
-- The loading sequence is a timed splash animation; no server connection is attempted.
+- The supplied loading video plays once, then the Mini App switches to the airdrop notice.
+- The API server reads `BOT_TOKEN` from Replit Secrets and handles Telegram webhook replies; never expose the token in frontend code.
 
 ## Product
 
-The Mini App displays only the supplied Capyboo3 artwork full screen.
+The Mini App plays the supplied loading animation, then displays the full Capyboo3 artwork with one popup: “Airdrop is coming soon.”
 
 ## User preferences
 
 - Keep this as a Telegram Mini App, not a promotional website.
-- Show only the supplied image full screen, with no loading indicator, status text, or added background.
+- Keep the post-video screen limited to the artwork and the single airdrop popup; do not add other UI or status text.
 
 ## Gotchas
 

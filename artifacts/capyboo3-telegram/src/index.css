@@ -420,7 +420,7 @@
   .loading-track::after { transform: translateX(0); }
 }
 
-/* Telegram Mini App splash screen */
+/* Telegram Mini App intro and airdrop screen */
 html,
 body,
 #root {
@@ -471,7 +471,7 @@ body {
   height: auto;
   max-width: min(58vw, 220px);
   max-height: 44vh;
-  object-fit: contain;
+  object-fit: fill;
 }
 
 .mini-app-status {
@@ -519,19 +519,86 @@ body {
 }
 
 .telegram-mini-app {
+  position: relative;
+  isolation: isolate;
   display: block;
   width: 100%;
   height: var(--tg-viewport-height, 100dvh);
-  min-height: 0;
+  min-height: 320px;
   margin: 0;
   padding: 0;
+  overflow: hidden;
+  background: transparent;
+}
+
+.telegram-loading-video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  object-position: center;
   background: transparent;
 }
 
 .telegram-fullscreen-art {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
   object-position: center;
+}
+
+.airdrop-backdrop {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(8, 38, 72, 0.24);
+}
+
+.airdrop-popup {
+  width: min(100%, 340px);
+  padding: 22px 20px;
+  border: 3px solid #281508;
+  border-radius: 22px;
+  background: linear-gradient(155deg, #fff4bd 0%, #ffd342 100%);
+  color: #321305;
+  box-shadow:
+    0 7px 0 #281508,
+    0 20px 40px rgba(0, 0, 0, 0.26);
+  text-align: center;
+  animation: airdrop-popup-in 420ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.airdrop-popup p {
+  margin: 0;
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(24px, 6vw, 32px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+@keyframes airdrop-popup-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .airdrop-popup {
+    animation: none;
+  }
 }

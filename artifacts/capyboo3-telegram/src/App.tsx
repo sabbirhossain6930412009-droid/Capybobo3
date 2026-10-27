@@ -1,4 +1,4 @@
-import { useEffect, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
@@ -37,6 +37,8 @@ declare global {
 }
 
 function Home() {
+  const [showAirdropPage, setShowAirdropPage] = useState(false);
+
   useEffect(() => {
     const telegram = window.Telegram?.WebApp;
     telegram?.ready();
@@ -65,12 +67,41 @@ function Home() {
 
   return (
     <main className="telegram-mini-app" data-testid="page-telegram-mini-app">
-      <img
-        className="telegram-fullscreen-art"
-        src="/capyboo3-hero.png"
-        alt="Capyboo3, a capybara knight in a bright fantasy world"
-        data-testid="img-capyboo3-hero"
-      />
+      {showAirdropPage ? (
+        <>
+          <img
+            className="telegram-fullscreen-art"
+            src="/capyboo3-hero.png"
+            alt="Capyboo3, a capybara knight in a bright fantasy world"
+            data-testid="img-capyboo3-hero"
+          />
+          <div className="airdrop-backdrop">
+            <div
+              className="airdrop-popup"
+              role="status"
+              aria-live="polite"
+              data-testid="airdrop-coming-soon"
+            >
+              <p>Airdrop is coming soon.</p>
+            </div>
+          </div>
+        </>
+      ) : (
+        <video
+          className="telegram-loading-video"
+          autoPlay
+          muted
+          playsInline
+          preload="auto"
+          poster="/capyboo3-loading-poster.jpg"
+          aria-label="Capyboo3 loading animation"
+          data-testid="video-capyboo3-loading"
+          onEnded={() => setShowAirdropPage(true)}
+          onError={() => setShowAirdropPage(true)}
+        >
+          <source src="/capyboo3-loading.mp4" type="video/mp4" />
+        </video>
+      )}
     </main>
   );
 }
