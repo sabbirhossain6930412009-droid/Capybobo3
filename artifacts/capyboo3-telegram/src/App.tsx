@@ -68,24 +68,16 @@ function Home() {
   return (
     <main className="telegram-mini-app" data-testid="page-telegram-mini-app">
       {showAirdropPage ? (
-        <>
-          <img
-            className="telegram-fullscreen-art"
-            src="/capyboo3-hero.png"
-            alt="Capyboo3, a capybara knight in a bright fantasy world"
-            data-testid="img-capyboo3-hero"
-          />
-          <div className="airdrop-backdrop">
-            <div
-              className="airdrop-popup"
-              role="status"
-              aria-live="polite"
-              data-testid="airdrop-coming-soon"
-            >
-              <p>Airdrop is coming soon.</p>
-            </div>
+        <section className="airdrop-page" aria-label="Airdrop page">
+          <div
+            className="airdrop-message-box"
+            role="status"
+            aria-live="polite"
+            data-testid="airdrop-coming-soon"
+          >
+            <p>Airdrop Coming Soon</p>
           </div>
-        </>
+        </section>
       ) : (
         <video
           className="telegram-loading-video"

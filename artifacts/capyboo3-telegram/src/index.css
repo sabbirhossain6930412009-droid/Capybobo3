@@ -537,68 +537,59 @@ body {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: contain;
   object-position: center;
   background: transparent;
 }
 
-.telegram-fullscreen-art {
+.airdrop-page {
   position: absolute;
-  inset: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
-}
-
-.airdrop-backdrop {
-  position: absolute;
-  z-index: 1;
   inset: 0;
   display: grid;
   place-items: center;
-  padding: 24px;
-  background: rgba(8, 38, 72, 0.24);
+  padding: max(24px, env(safe-area-inset-left, 0px))
+    max(24px, env(safe-area-inset-right, 0px));
+  background:
+    radial-gradient(ellipse at 50% 45%, #20242d 0%, #0b0d12 58%, #030405 100%);
 }
 
-.airdrop-popup {
-  width: min(100%, 340px);
-  padding: 22px 20px;
-  border: 3px solid #281508;
+.airdrop-message-box {
+  box-sizing: border-box;
+  width: min(100%, 360px);
+  padding: clamp(24px, 7vw, 36px) 20px;
+  border: 2px solid #d8a52d;
   border-radius: 22px;
-  background: linear-gradient(155deg, #fff4bd 0%, #ffd342 100%);
-  color: #321305;
+  background: #030405;
+  color: #ffd34f;
   box-shadow:
-    0 7px 0 #281508,
-    0 20px 40px rgba(0, 0, 0, 0.26);
+    0 0 0 1px rgba(255, 213, 93, 0.12),
+    0 18px 42px rgba(0, 0, 0, 0.55),
+    inset 0 0 26px rgba(255, 205, 70, 0.06);
   text-align: center;
-  animation: airdrop-popup-in 420ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation: airdrop-fade-in 300ms ease-out both;
 }
 
-.airdrop-popup p {
+.airdrop-message-box p {
   margin: 0;
   font-family: 'Fredoka', sans-serif;
-  font-size: clamp(24px, 6vw, 32px);
+  font-size: clamp(28px, 7.5vw, 38px);
   font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
 }
 
-@keyframes airdrop-popup-in {
+@keyframes airdrop-fade-in {
   from {
     opacity: 0;
-    transform: translateY(12px) scale(0.96);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .airdrop-popup {
+  .airdrop-message-box {
     animation: none;
   }
 }

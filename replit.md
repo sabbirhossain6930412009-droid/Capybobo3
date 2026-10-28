@@ -1,6 +1,6 @@
 # Capyboo3 Telegram Mini App
 
-A Telegram Mini App that plays the supplied Capyboo3 loading video, then shows the artwork with an “Airdrop is coming soon” popup.
+A Telegram Mini App that plays the supplied Capyboo3 loading video, then shows a full-screen “Airdrop Coming Soon” message.
 
 ## Run & Operate
 
@@ -32,12 +32,12 @@ A Telegram Mini App that plays the supplied Capyboo3 loading video, then shows t
 
 ## Product
 
-The Mini App plays the supplied loading animation, then displays the full Capyboo3 artwork with one popup: “Airdrop is coming soon.”
+The Mini App plays the supplied loading animation, then opens a full-screen dark page with one black message box reading “Airdrop Coming Soon.” No photo appears on the final page.
 
 ## User preferences
 
 - Keep this as a Telegram Mini App, not a promotional website.
-- Keep the post-video screen limited to the artwork and the single airdrop popup; do not add other UI or status text.
+- Keep the post-video screen limited to the dark page and one “Airdrop Coming Soon” message box; do not add photos or other UI.
 
 ## Gotchas
 
