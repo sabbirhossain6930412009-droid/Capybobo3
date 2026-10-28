@@ -471,7 +471,7 @@ body {
   height: auto;
   max-width: min(58vw, 220px);
   max-height: 44vh;
-  object-fit: fill;
+  object-fit: cover;
 }
 
 .mini-app-status {
