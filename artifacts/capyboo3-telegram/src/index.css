@@ -547,15 +547,27 @@ body {
   inset: 0;
   display: grid;
   place-items: center;
-  padding: max(24px, env(safe-area-inset-left, 0px))
-    max(24px, env(safe-area-inset-right, 0px));
-  background:
-    radial-gradient(ellipse at 50% 45%, #20242d 0%, #0b0d12 58%, #030405 100%);
+  overflow: hidden;
+  padding: 0;
+  background: #030405;
+}
+
+.airdrop-background {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  object-position: center;
 }
 
 .airdrop-message-box {
   box-sizing: border-box;
-  width: min(100%, 360px);
+  position: relative;
+  z-index: 1;
+  width: min(calc(100% - 48px), 360px);
   padding: clamp(24px, 7vw, 36px) 20px;
   border: 2px solid #d8a52d;
   border-radius: 22px;

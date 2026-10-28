@@ -1,7 +1,7 @@
 kind = "web"
 previewPath = "/"
 title = "Capyboo3 Telegram Bot"
-description = "A Telegram Mini App that plays the supplied Capyboo3 loading video, then shows a full-screen dark page with an Airdrop Coming Soon message."
+description = "A Telegram Mini App that plays the supplied Capyboo3 loading video, then fills the screen with the full artwork and an Airdrop Coming Soon message box."
 version = "1.0.0"
 id = "artifacts/capyboo3-telegram"
 router = "path"

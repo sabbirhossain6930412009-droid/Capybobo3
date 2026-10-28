@@ -69,6 +69,13 @@ function Home() {
     <main className="telegram-mini-app" data-testid="page-telegram-mini-app">
       {showAirdropPage ? (
         <section className="airdrop-page" aria-label="Airdrop page">
+          <img
+            className="airdrop-background"
+            src="/capyboo3-hero.png"
+            alt=""
+            aria-hidden="true"
+            data-testid="img-airdrop-background"
+          />
           <div
             className="airdrop-message-box"
             role="status"
